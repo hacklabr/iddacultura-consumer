@@ -1,0 +1,6 @@
+[submodule "lib/openid"]
+	path = lib/openid
+	url = git@github.com:hacklabr/wordpress-openid.git
+[submodule "lib/xrds-simple"]
+	path = lib/xrds-simple
+	url = git@github.com:hacklabr/wordpress-xrds-simple.git
