@@ -86,11 +86,6 @@ add_filter('openid_consumer_ax_fields', function() {
         Auth_OpenID_AX_AttrInfo::make('http://openid.net/schema/namePerson/friendly', 1, true),
         Auth_OpenID_AX_AttrInfo::make('http://openid.net/schema/contact/internet/email', 1, true),
         Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/cpf', 1, true),
-        Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/occupation_primary', 1, true),
-        Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/occupation_secondary', 1, true),
-        Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/occupation_tertiary', 1, true),
-        Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/occupation_quartenary', 1, true),
-        Auth_OpenID_AX_AttrInfo::make('http://id.culturadigital.br/schema/occupation_quinary', 1, true),
     );
 
     return $fields;
@@ -141,31 +136,6 @@ add_filter('openid_user_data', function($data, $identity_url) {
         $data['cpf'] = $cpf;
     }
 
-    $occupation_primary = $ax->getSingle('http://id.culturadigital.br/schema/occupation_primary');
-    if ($occupation_primary	&& !is_a($occupation_primary, 'Auth_OpenID_AX_Error')) {
-        $data['occupation_primary'] = $occupation_primary;
-    }
-
-    $occupation_secondary = $ax->getSingle('http://id.culturadigital.br/schema/occupation_secondary');
-    if ($occupation_secondary && !is_a($occupation_secondary, 'Auth_OpenID_AX_Error')) {
-        $data['occupation_secondary'] = $occupation_secondary;
-    }
-
-    $occupation_tertiary = $ax->getSingle('http://id.culturadigital.br/schema/occupation_tertiary');
-    if ($occupation_tertiary && !is_a($occupation_tertiary, 'Auth_OpenID_AX_Error')) {
-        $data['occupation_tertiary'] = $occupation_tertiary;
-    }
-
-    $occupation_quartenary = $ax->getSingle('http://id.culturadigital.br/schema/occupation_quartenary');
-    if ($occupation_quartenary && !is_a($occupation_quartenary, 'Auth_OpenID_AX_Error')) {
-        $data['occupation_quartenary'] = $occupation_quartenary;
-    }
-
-    $occupation_quinary = $ax->getSingle('http://id.culturadigital.br/schema/occupation_quinary');
-    if ($occupation_quinary && !is_a($occupation_quinary, 'Auth_OpenID_AX_Error')) {
-        $data['occupation_quinary'] = $occupation_quinary;
-    }
-
     return $data;
 }, 20, 2);
 
@@ -198,25 +168,5 @@ function iddacultura_user_data($user_id, $data) {
 
     if (isset($data['cpf'])) {
         update_user_meta($user_id, 'cpf', $data['cpf']);
-    }
-
-    if (isset($data['occupation_primary'])) {
-        update_user_meta($user_id, 'occupation_primary', $data['occupation_primary']);
-    }
-
-    if (isset($data['occupation_secondary'])) {
-        update_user_meta($user_id, 'occupation_secondary', $data['occupation_secondary']);
-    }
-
-    if (isset($data['occupation_tertiary'])) {
-        update_user_meta($user_id, 'occupation_tertiary', $data['occupation_tertiary']);
-    }
-
-    if (isset($data['occupation_quartenary'])) {
-        update_user_meta($user_id, 'occupation_quartenary', $data['occupation_quartenary']);
-    }
-
-    if (isset($data['occupation_quinary'])) {
-        update_user_meta($user_id, 'occupation_quinary', $data['occupation_quinary']);
     }
 }
