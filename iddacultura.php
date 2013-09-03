@@ -10,9 +10,9 @@
  */
 
 // constantes para desabilitar partes do plugin openid que não são usadas
-//define('OPENID_DISABLE_ADMIN_PANELS', true);
+define('OPENID_DISABLE_ADMIN_PANELS', true);
 define('OPENID_DISABLE_COMMENTS', true);
-//define('OPENID_DISABLE_SERVER', true);
+define('OPENID_DISABLE_SERVER', true);
 
 // inclui manualmente os plugins xrds-simple e openid
 // que são distribuídos junto com este
