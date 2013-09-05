@@ -10,7 +10,6 @@
  */
 
 // constantes para desabilitar partes do plugin openid que não são usadas
-define('OPENID_DISABLE_ADMIN_PANELS', true);
 define('OPENID_DISABLE_COMMENTS', true);
 define('OPENID_DISABLE_SERVER', true);
 
@@ -34,6 +33,7 @@ add_action('init', function() {
 
 require_once('custom_profile.php');
 require_once('login.php');
+require_once('migrate_users.php');
 
 add_action('admin_notices', function() {
     if (!defined('IDDACULTURA_PROVIDER') && current_user_can('manage_options') && is_admin()) {
