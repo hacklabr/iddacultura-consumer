@@ -13,7 +13,7 @@ add_action('login_head', function() {
 });
 
 add_action('init', function() {
-    // remove o formulário openid de login do plugin openid
+    // remove o formulário de login do plugin openid
     remove_action('login_form', 'openid_wp_login_form');
 });
 
@@ -65,12 +65,12 @@ function iddacultura_login_errors() {
     }
 }
 
-// não solicita não dado do usuário usando a extensão sreg
+// não solicita nenhum dado do usuário usando a extensão sreg
 add_filter('openid_consumer_sreg_optional_fields', function($fields) {
     return array();
 });
 
-// não solicita não dado do usuário usando a extensão sreg
+// não solicita nenhum dado do usuário usando a extensão sreg
 add_filter('openid_consumer_sreg_required_fields', function($fields) {
     return array();
 });
