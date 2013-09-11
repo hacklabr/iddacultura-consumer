@@ -70,7 +70,15 @@ add_filter('login_message', function($message) {
     $user_id = get_current_user_id();
     $site_url = site_url();
 
-    if ($user_id && !get_user_openids($user_id) && !get_user_meta($user_id, '_iddacultura_optout', true)) {
+    if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'iddacultura_feedback') {
+        if (!get_user_openids($user_id)) {
+            $message = '<div class="error"><p>Houve um erro e não foi possível conectar usa conta com o ID da Cultura. É possível que um outro usuário deste site já esteja associado a mesma conta do ID da Cultura.</p></div>';
+        } else if (isset($_REQUEST['status']) && $_REQUEST['status'] == 'success') {
+            $message = '<p class="message">Conexão realizada com sucesso. A partir de agora você pode usar a sua conta no ID da Cultura para entrar neste site.</p>';
+        }
+        
+        $message .= "<a href='{$site_url}'>Ir para a página inicial</a>";
+    } else if ($user_id && !get_user_openids($user_id) && !get_user_meta($user_id, '_iddacultura_optout', true)) {
         $site_name = get_bloginfo('name');
         $login_url = wp_login_url();
         
@@ -82,14 +90,6 @@ add_filter('login_message', function($message) {
         $message .= "<p><a href='{$login_url}?action=iddacultura_connect'>Conectar usando uma conta do ID da Cultura já existente</a></p>";
         $message .= "<p><a href='{$login_url}?action=iddacultura_optout'>Não usar o ID da Cultura</a></p>";
         $message .= "<p><a href='{$site_url}'>Agora não</a></p>";
-    } else if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'iddacultura_feedback') {
-        if (isset($_REQUEST['status']) && $_REQUEST['status'] == 'success') {
-            $message = '<p class="message">Conexão realizada com sucesso. A partir de agora você pode usar a sua conta no ID da Cultura para entrar neste site.</p>';
-        } else {
-            $message = '<p class="error">Houve um erro e não foi possível conectar usa conta com o ID da Cultura'; 
-        }
-        
-        $message .= "<a href='{$site_url}'>Ir para a página inicial</a>";
     }
     
     return $message;
