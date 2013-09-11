@@ -30,7 +30,7 @@ add_action('login_head', function() {
 // pergunta se ele quer passar a usar este caminho para
 // entrar no site ou se prefere continuar usando o login do WP
 add_action('wp_login', function($user_login, $user) {
-    if (!get_user_openids($user->ID) && !get_user_meta($user->ID, '_iddacultura_optout', true)) {
+    if (!get_user_openids($user->ID) && !get_user_meta($user->ID, '_iddacultura_optout', true) && !isset($_REQUEST['openid_mode'])) {
         wp_redirect(wp_login_url());
         die;
     }
