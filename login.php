@@ -97,6 +97,8 @@ add_filter('openid_user_data', function($data, $identity_url) {
 
     // ignora os dados do usuário que foram adicionados pelo plugin openid
     $data = array();
+    
+    $data['display_name'] = $identity_url; // evitar warning na linha 409 do lib/openid/common.php
 
     $response = openid_response();
     $ax = Auth_OpenID_AX_FetchResponse::fromSuccessResponse($response);
