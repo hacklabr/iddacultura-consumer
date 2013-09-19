@@ -90,6 +90,7 @@ add_filter('login_message', function($message) {
         $message .= "<p><a href='{$login_url}?action=iddacultura_connect'>Conectar usando uma conta do ID da Cultura já existente</a></p>";
         $message .= "<p><a href='{$login_url}?action=iddacultura_optout'>Não usar o ID da Cultura</a></p>";
         $message .= "<p><a href='{$site_url}'>Agora não</a></p>";
+        $message .= "<p><a href='" . IDDACULTURA_PROVIDER . "'>Saiba mais sobre o ID da Cultura</a></p>";
     }
     
     return $message;
