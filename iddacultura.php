@@ -35,8 +35,6 @@ require_once('custom_profile.php');
 require_once('login.php');
 require_once('migrate_users.php');
 
-add_action('admin_notices', function() {
-    if (!defined('IDDACULTURA_PROVIDER') && current_user_can('manage_options') && is_admin()) {
-        echo '<div class="error"><p>É necessário adicionar a constante IDDACULTURA_PROVIDER ao arquivo wp-config.php com a URL para o provider openid para que o botão do ID da Cultura funcione na página de login.</p></div>';
-    }
-});
+if (!defined('IDDACULTURA_PROVIDER')) {
+    define('IDDACULTURA_PROVIDER', 'http://id.culturadigital.br');
+}
