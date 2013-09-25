@@ -27,12 +27,11 @@ function iddacultura_wp_login_form() {
     ?>
     <?php if (defined('IDDACULTURA_PROVIDER')) : ?>
         <div id="iddacultura-login">
-            <br /><br /><br /><br />
+            <br /><br /><br />
             <input type="hidden" name="openid_identifier" id="openid_identifier" class="input openid_identifier" value="<?php echo IDDACULTURA_PROVIDER; ?>" />
-            <p><input id="submit-iddacultura" class="button-primary" type="submit" tabindex="100" value="Entrar usando o ID da Cultura" name="submit-iddacultura"></p>
+            <p><input id="submit-iddacultura" class="btn-auto button-primary" type="submit" tabindex="100" value="Entrar usando o ID da Cultura" name="submit-iddacultura"></p>
             <br /><br />
-            <p style="text-align: right;"><a href="<?php echo IDDACULTURA_PROVIDER; ?>/accounts/register">Criar um ID da Cultura</a></p>
-            <p style="text-align: right;"><a href="<?php echo IDDACULTURA_PROVIDER; ?>">Saiba mais sobre o ID da Cultura</a></p>
+            <p style="text-align: center;"><a href="<?php echo IDDACULTURA_PROVIDER; ?>">Saiba mais sobre o ID da Cultura</a></p>
         </div>
     <?php endif;
 }

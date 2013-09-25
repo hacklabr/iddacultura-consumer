@@ -40,3 +40,19 @@ add_action('admin_notices', function() {
         echo '<div class="error"><p>É necessário adicionar a constante IDDACULTURA_PROVIDER ao arquivo wp-config.php com a URL para o provider openid para que o botão do ID da Cultura funcione na página de login.</p></div>';
     }
 });
+
+add_action( 'login_head', 'css_dos_botoes');
+
+function css_dos_botoes() {
+    echo '
+    <style  type="text/css">
+        .btn-auto {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+    .login form {
+        padding-bottom: 24px;
+    }
+    </style>';
+}
