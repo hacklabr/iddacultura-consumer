@@ -54,8 +54,11 @@ function css_dos_botoes() {
             text-align: center;
             margin-bottom: 6px;
         }
-    .login form {
-        padding-bottom: 24px;
-    }
+        .login form {
+            padding-bottom: 24px;
+        }
+        .accept-margin {
+            margin-left: 8px;
+        }
     </style>';
 }
