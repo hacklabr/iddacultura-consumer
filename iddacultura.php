@@ -41,6 +41,9 @@ add_action('admin_notices', function() {
     }
 });
 
+if (!defined('IDDACULTURA_PROVIDER')) {
+    define('IDDACULTURA_PROVIDER', 'http://id.culturadigital.br');
+}
 add_action( 'login_head', 'css_dos_botoes');
 
 function css_dos_botoes() {
