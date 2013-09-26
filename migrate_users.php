@@ -85,11 +85,9 @@ add_filter('login_message', function($message) {
         $message .= "<p>O site {$site_name} agora suporta o <b>ID da Cultura</b>, um servidor de autenticação centralizado, que permite utilizar um único usuário e senha para acessar diversos sites do Ministério da Cultura. Clique em um dos botões abaixo para começar a usar o ID da Cultura e conectar este serviço com a sua conta neste site.</p><br />";
         $message .= "<p>Se você ainda não tem uma conta no ID da Cultura, será necessário primeiro criar uma para então depois conectar ela com a sua conta neste site.</p><br />";
         $message .= "</div>";
-        $message .= "<p class='accept-margin'><a href='" . IDDACULTURA_PROVIDER . "/accounts/register' target='_blank' class='btn-auto button-primary'>Criar uma conta no ID da Cultura</a></p>";
+        $message .= "<p class='accept-margin'><a href='{$login_url}?action=iddacultura_connect' class='btn-auto button-primary'>Usar o ID da Cultura</a></p>";
         $message .= "<br><br>";
-        $message .= "<p class='accept-margin'><a href='{$login_url}?action=iddacultura_connect' class='btn-auto button-primary'>Usar conta existente</a></p>";
-        $message .= "<br><br>";
-        $message .= "<p class='accept-margin'><a href='{$login_url}?action=iddacultura_optout' class='btn-auto button-primary'>Continuar usando WordPress</a></p>";
+        $message .= "<p class='accept-margin'><a href='{$login_url}?action=iddacultura_optout' class='btn-auto button-primary'>Não usar o ID da Cultura</a></p>";
         $message .= "<br><br>";
         $message .= "<p class='btn-auto'><a href='{$site_url}'>Agora não</a></p>";
         $message .= "<p class='btn-auto'><a href='" . IDDACULTURA_PROVIDER . "'>Saiba mais sobre o ID da Cultura</a></p>";
