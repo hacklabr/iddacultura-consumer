@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: ID da Cultura
- * Description: Extende o plugin OpenID para adicionar funcionalidade especifica do ID da Cultura.
+ * Description: Transforma uma instalação do WordPress em um cliente do ID da Cultura
  * Author: Hacklab
  * Author URI: http://hacklab.com.br
  * Version: 1.0
