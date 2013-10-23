@@ -35,6 +35,14 @@ require_once('custom_profile.php');
 require_once('login.php');
 require_once('migrate_users.php');
 
+register_activation_hook(__FILE__, 'iddacultura_activation');
+
+function iddacultura_activation() {
+    // gera novamente as regras de permalink do WP para a página iddacultura
+    // criada no migrate_users.php funcionar
+    flush_rewrite_rules();
+}
+
 add_action('admin_notices', function() {
     if (!defined('IDDACULTURA_PROVIDER') && current_user_can('manage_options') && is_admin()) {
         echo '<div class="error"><p>É necessário adicionar a constante IDDACULTURA_PROVIDER ao arquivo wp-config.php com a URL para o provider openid para que o botão do ID da Cultura funcione na página de login.</p></div>';
